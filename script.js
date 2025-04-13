@@ -36,7 +36,7 @@ checkBoxList.forEach((checkbox)=>{
             checkbox.parentElement.classList.toggle('completed');
             const inputID = checkbox.nextElementSibling.id;
             allGoals[inputID].completed = !allGoals[inputID].completed;
-            goalCompleted = Object.values(allGoals).filter((goal)=>goal.completed).length || JSON.parse(localStorage.goalCompleted);
+            goalCompleted = Object.values(allGoals).filter((goal)=>goal.completed).length;
             progressvalue.style.width = `${(goalCompleted/3)*100}%`;
             progressText.innerText = `${goalCompleted}/3 completed`;
             if(goalCompleted === 0){
@@ -54,7 +54,6 @@ checkBoxList.forEach((checkbox)=>{
             localStorage.setItem('allGoals',JSON.stringify(allGoals));
             const progressString = progressLabel.innerText;
             localStorage.setItem('progressString',JSON.stringify(progressString));
-            localStorage.setItem('goalCompleted',JSON.parse(localStorage.goalCompleted));
         }
         else{
             progressBar.classList.add('show-error');
@@ -82,6 +81,5 @@ inputFields.forEach((input)=>{
         localStorage.setItem('allGoals',JSON.stringify(allGoals));
         progressString = progressLabel.innerText;
         localStorage.setItem('progressString',JSON.stringify(progressString));
-        localStorage.setItem('goalCompleted',JSON.parse(localStorage.goalCompleted));
     })
 })
