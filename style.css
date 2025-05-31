@@ -53,7 +53,7 @@ main{
 .progress-value{
     width: 0%;
     height: 100%;
-    background-color: #48A300;
+    background-image: linear-gradient(135deg, #48A300, #76c442);
     border-radius: 15px;
     color: #EEFFE0;
     font-size: 10px;
@@ -85,7 +85,7 @@ main{
     background-color: #FFFFFF;
     margin-bottom: 42px;
 }
-.custon-checkbox{
+.custom-checkbox{
     width: 24px;
     height: 24px;
     border: 2px solid rgba(97,72,28,0.3);
@@ -124,7 +124,7 @@ main{
     text-align: center;
     margin-top: 64px;
 }
-.completed .custon-checkbox{
+.completed .custom-checkbox{
     background-color: #48A300;
     border-color: #48A300;
 }
@@ -140,6 +140,38 @@ main{
 }
 .show-error .error-label{
     display: block;
+}
+.add-new-task-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-new-task-button {
+    background-image: linear-gradient(135deg, #48A300, #76c442);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-new-task-button:hover {
+    filter: brightness(1.05);
+    transform: scale(1.05);
+}
+
+.add-new-task-button:active {
+    transform: scale(0.98);
+}
+.delete-icon{
+    opacity: 0.25;
+}
+.completed .delete-icon{
+    opacity: 0.75;
 }
 @keyframes spin {
     from{
@@ -173,7 +205,7 @@ main{
         margin-bottom: 24px;
         border-radius: 14px;
     }
-    .custon-checkbox{
+    .custom-checkbox{
         height: 20px;
         width: 20px;
     }
