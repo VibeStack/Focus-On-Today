@@ -80,7 +80,7 @@ main{
     height: 82px;
     display: flex;
     align-items: center;
-    padding: 0 22px;
+    padding-right: 12px;
     /* padding: 40px 22px; */
     background-color: #FFFFFF;
     margin-bottom: 42px;
@@ -88,6 +88,7 @@ main{
 .custom-checkbox{
     width: 24px;
     height: 24px;
+    margin: 22px;
     border: 2px solid rgba(97,72,28,0.3);
     border-radius: 50%;
     flex-shrink: 0;
@@ -105,7 +106,6 @@ main{
     outline: none;
     font-size: 16px;
     font-weight: 500;
-    padding-left: 22px;
     font-family: inherit;
     /* flex-grow: 1; */
     width: 100%;
@@ -168,6 +168,7 @@ main{
     transform: scale(0.98);
 }
 .delete-icon{
+    padding: 16px;
     opacity: 0.25;
 }
 .completed .delete-icon{

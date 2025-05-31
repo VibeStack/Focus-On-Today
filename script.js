@@ -117,26 +117,41 @@ allGoalsContainer.addEventListener('click',(e)=>{
         })
     }
     if(e.target.classList.contains('delete-icon')){
+        
+        if(numberOfgoals>3){
+            const id = e.target.previousElementSibling.id;
+            delete allGoals[`${id}`];
+            localStorage.setItem('allGoals',JSON.stringify(allGoals));  
+            numberOfgoals--;
+            localStorage.setItem('numberOfgoals',numberOfgoals);
 
-        const id = e.target.previousElementSibling.id;
-        delete allGoals[`${id}`];
-        localStorage.setItem('allGoals',JSON.stringify(allGoals));  
-        numberOfgoals--;
-        localStorage.setItem('numberOfgoals',numberOfgoals);
+            progressUpdate();
 
-        progressUpdate();
-
-        // const keysLeft = Object.keys(allGoals);
-        // console.log(keysLeft);
-        // keysLeft.forEach((key,index)=>{
-        //     const eachTaskObject = {
-        //         data: JSON.parse(localStorage.getItem('allGoals'))[`${key}`].data,
-        //         completed: JSON.parse(localStorage.getItem('allGoals'))[`${key}`].completed,
-        //     }
-        //     allGoals[`task-${index+1}`] = eachTaskObject;
-        // })
-        // localStorage.setItem('allGoals',JSON.stringify(allGoals));
-        e.target.parentElement.remove();
+            let count = 1;
+            for(let goal in allGoals){
+                if(goal != `task-${count}`){
+                    console.log('hi');
+                    allGoals[`task-${count}`] = allGoals[goal];
+                    delete allGoals[goal];
+                }
+                count++;
+            }
+            e.target.parentElement.remove();    
+            localStorage.setItem('allGoals',JSON.stringify(allGoals));
+            
+            count = 1;
+            const allGoalInputs = document.querySelectorAll('.goal-input');
+            allGoalInputs.forEach((input)=>{
+                if(input.id != `task-${count}`){
+                    input.id = `task-${count}`;
+                }
+                count++;
+            })
+            
+        }
+        else{
+            alert(`Can't Remove Tasks\nThere must be minimum of 3 tasks!`)
+        }
 
     }
 })
