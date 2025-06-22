@@ -36,6 +36,7 @@ function progressUpdate(){
     }
     progressValue.style.width = `${(goalsCompletedCount/numberOfgoals)*100}%`;
     progressText.innerText = `${goalsCompletedCount}/${numberOfgoals} Completed`;
+    errorGoalCount.innerText = numberOfgoals;
 }
 
 // create localstorage variable and update
